@@ -1,0 +1,13 @@
+/* ============================================
+; Title: Exercise 1.3
+; Author: Troy Martin
+; Date: 09/05/2019
+; Modified By: Troy Martin
+; Description: Angular CLI
+;=========================================== */
+
+/* custom style for h1 in component */
+h1 {
+  padding-top: 10rem;
+  text-align: center;
+}
