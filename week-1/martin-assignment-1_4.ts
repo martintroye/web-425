@@ -39,6 +39,7 @@ function myName(firstName: string, lastName: string){
 // Call the console log function and output a well-formatted header
 console.log("Troy Martin");
 console.log("Assignment 1.4");
+// Call the console log function and output a new formatted date string
 console.log(new Date().toLocaleDateString('en-US'));
 console.log("");
 
