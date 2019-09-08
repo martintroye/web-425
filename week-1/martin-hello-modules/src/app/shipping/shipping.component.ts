@@ -18,7 +18,7 @@ import { Component, OnInit } from '@angular/core';
   // define the template for the component
   template: `
     <p>
-      Welcome from the shipping component!
+      This is the shipping component!
     </p>
   `,
   // define inline styles for the component
