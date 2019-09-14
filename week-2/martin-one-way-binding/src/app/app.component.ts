@@ -29,7 +29,9 @@ import { Component } from '@angular/core';
 // declare and export the AppComponent class
 export class AppComponent {
   // variable declaration and assignment
-  name = 'Troy Martin';
+
+  //declare the name property and set a default value
+  name: string = 'Troy Martin';
 
   // function declaration
 
