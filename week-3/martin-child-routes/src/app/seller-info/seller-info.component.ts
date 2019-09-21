@@ -11,34 +11,41 @@
 
 // import the angular core module
 import { Component, OnInit } from "@angular/core";
+// import the angular router module
+import { ActivatedRoute } from "@angular/router";
 
 // declare the component
 @Component({
   // declare the selector for output
-  selector: "app-product-description",
+  selector: "app-seller-info",
   // declare the HTML template
   template: `
-    This is a great product!
+    The seller Fred Flintstone, id {{ sellerId }}
   `,
   // declare the inline styles for the component
   styles: [
     `
       :host {
-        background: green;
-        color: white;
+        background: yellow;
         padding: 4px;
       }
     `
   ]
 })
-// declare and export the product description component
-export class ProductDescriptionComponent implements OnInit {
+// declare and export the seller info component
+export class SellerInfoComponent implements OnInit {
+  // declare the seller id property
+  sellerId: string;
+
   /*
-  ; Params: none
+  ; Params: route: ActivatedRoute
   ; Response: none
   ; Description: Constructor
   */
-  constructor() {}
+  constructor(route: ActivatedRoute) {
+    // set the seller id property using the id param from the current route
+    this.sellerId = route.snapshot.paramMap.get("id");
+  }
 
   /*
   ; Params: none
