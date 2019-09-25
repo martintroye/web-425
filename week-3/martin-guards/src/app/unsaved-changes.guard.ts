@@ -30,7 +30,7 @@ export class UnsavedChangesGuard implements CanDeactivate<ProductComponent> {
   ; Description: If the name form control of the product component has be change warn the user
   */
   canDeactivate(component: ProductComponent) {
-    // if the name formcontrol of the component has changes
+    // if the name form control of the component has changes
     if (component.name.dirty) {
       // using the window confirm function get the response to allow the navigation
       return window.confirm('There are unsaved changes, do you still want to go?');
