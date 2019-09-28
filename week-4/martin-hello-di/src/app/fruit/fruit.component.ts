@@ -1,9 +1,25 @@
+/*
+============================================
+; Title: Exercise 4.2
+; Author: Troy Martin
+; Date: 09/27/2019
+; Modified By: Troy Martin
+; Description: Inversion of Control and Dependency Injection
+;===========================================
+*/
+// import angular core module
 import { Component, OnInit } from '@angular/core';
+
+// import the fruit service
 import { FruitService } from './fruit.service';
+// import the fruit class
 import { Fruit } from './fruit';
 
+// declare the component
 @Component({
+  // declare the selector to output the component
   selector: 'app-fruit',
+  // declare the inline HTML template for the component
   template: `
     <div class="container d-flex flex-column">
       <div class="flex-fill">
@@ -29,6 +45,7 @@ import { Fruit } from './fruit';
       </div>
     </div>
   `,
+  // declare the inline styles for the component
   styles: [
     `
       .container {
@@ -44,12 +61,27 @@ import { Fruit } from './fruit';
     `
   ]
 })
+// declare and export the class
 export class FruitComponent implements OnInit {
+  // declare the fruits property
   fruits: Fruit[];
 
+  /*
+  ; Params: fruitService: FruitService
+  ; Response: none
+  ; Description: Constructor, with injected fruit service
+  */
   constructor(private fruitService: FruitService) {
+    // Using the getFruit method of the fruitService retrieve an array of fruits
     this.fruits = this.fruitService.getFruit();
   }
 
+  /*
+  ; Params: none
+  ; Response: none
+  ; Description: Method from OnInit to initialize the class
+  */
   ngOnInit() {}
 }
+
+// end program
