@@ -39,10 +39,10 @@
 </header>
 <br /><br />
 <div class="container">
-  <div class="row col">
+  <div class="row col justify-content-center">
     <h2>Handling form events with Observables</h2>
   </div>
-  <div class="row col">
+  <div class="row col justify-content-center">
     <div class="form-group w-50">
       <label for="txtStockPrice">Stock Price Search</label>
       <input
@@ -51,10 +51,12 @@
         id="txtStockPrice"
         placeholder="Enter a stock to get the price..."
         [formControl]="searchInput"
+        maxlength="5"
+        autofocus
       />
     </div>
   </div>
-  <div class="row col" *ngIf="convertedStockPrice">
+  <div class="row col justify-content-center" *ngIf="convertedStockPrice">
     <h4>{{ convertedStockPrice }}</h4>
   </div>
 </div>
