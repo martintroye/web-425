@@ -23,6 +23,9 @@ import { Component, OnInit } from '@angular/core';
   // declare the inline styles for the component
   styles: [
     `
+    h2{
+      color: red;
+    }
     .container{
       padding-top:4rem;
     }

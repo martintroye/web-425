@@ -48,11 +48,11 @@ import { Fruit } from './fruit';
   // declare the inline styles for the component
   styles: [
     `
+      h2{
+        color: blue;
+      }
       .container {
         padding-top: 4rem;
-      }
-      .element{
-        margin: 0 auto;
       }
       .tbl-header{
         color: grey;
