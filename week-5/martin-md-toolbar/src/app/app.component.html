@@ -1,0 +1,56 @@
+<!--
+============================================
+; Title: Exercise 5.2
+; Author: Troy Martin
+; Date: 10/03/2019
+; Modified By: Troy Martin
+; Description: Navigation
+;===========================================
+-->
+
+<!-- Define the material toolbar applying our custom menu css -->
+<mat-toolbar class="menu" role="header" color="primary">
+  <!-- Define a single row for the toolbar -->
+  <mat-toolbar-row>
+    <!-- Define the badge for the toolbar -->
+    <button mat-button class="tool__icon-button mat-button">
+      <!-- Use the web material icon -->
+      <mat-icon>web</mat-icon>
+      <span style="margin-left: 5px !important">WEB 425</span>
+    </button>
+    <!-- Define additional buttons for the toolbar -->
+    <button mat-button class="mat-button">About</button>
+    <button mat-button class="mat-button">Contact Us</button>
+    <!-- spacing div -->
+    <div fxFlex></div>
+    <!-- Drop down menu button-->
+    <button mat-button class="tool__icon-button mat-button" [matMenuTriggerFor]="menu" mat-icon-button>
+      <!-- Use the account circle material icon -->
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <!-- define the dropdown menu -->
+    <mat-menu #menu>
+      <!-- add options to the dropdown menu-->
+      <button mat-menu-item>
+        <!-- use a material icon-->
+        <mat-icon>perm_contact_calendar</mat-icon>
+        <span>My Profile</span>
+      </button>
+      <button mat-menu-item>
+        <!-- use a material icon -->
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item>
+        <!-- use a material icon-->
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- page content -->
+<div class="wrapper">
+  <h2>Hello Material Design!</h2>
+</div>

@@ -1,0 +1,15 @@
+/* define the css for our toolbar */
+.menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0,
+  z-index = 0;
+  color: white;
+}
+
+/* css for the content wrapper */
+.wrapper{
+  padding: 70px 70px 0;
+  display: block;
+}
