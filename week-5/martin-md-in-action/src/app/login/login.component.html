@@ -1,0 +1,41 @@
+<!--
+============================================
+; Title: Exercise 5.4
+; Author: Troy Martin
+; Date: 10/05/2019
+; Modified By: Troy Martin
+; Description: Flex Layout
+;===========================================
+-->
+<div class="wrapper">
+  <div class="frm-login">
+    <!-- define the material card -->
+    <mat-card class="login-panel frm-login-panel">
+      <!-- define the header for the card -->
+      <mat-card-header class="frm-login-header">
+        <!-- add a material toolbar to the header -->
+        <mat-toolbar class="frm-login-toolbar">
+          Login Form
+        </mat-toolbar>
+      </mat-card-header>
+
+      <!-- define the material card content -->
+      <mat-card-content class="frm-login-body">
+        <!-- define the user name input -->
+        <mat-form-field>
+          <input type="text" matInput placeholder="Username">
+        </mat-form-field>
+        <!-- define the password input -->
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password">
+        </mat-form-field>
+      </mat-card-content>
+
+      <!-- define the container for the buttons -->
+      <mat-card-actions class="frm-login-actions">
+        <button mat-raised-button class="btn-cancel">Cancel</button>
+        <button mat-raised-button class="btn-login">Sign In</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
