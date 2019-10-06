@@ -22,9 +22,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 // import our custom app component
 import { AppComponent } from './app.component';
+// import our custom home component
 import { HomeComponent } from './home/home.component';
+// import our custom login component
 import { LoginComponent } from './login/login.component';
+// import our custom routing module
 import { AppRoutingModule } from './app-routing.module';
+// import our custom tool bar component
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
 
 // declare our module
