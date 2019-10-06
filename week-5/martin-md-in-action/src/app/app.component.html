@@ -7,15 +7,19 @@
 ; Description: Flex-Layout
 ;===========================================
 -->
+
+<!-- Add the material toolbar -->
 <app-tool-bar></app-tool-bar>
-<div class="parent" fxLayout="row">
-  <div class="left"fxFlex>Left</div>
-  <div class="right" fxFlex>
+
+<!-- add the flex row -->
+<div fxLayout="row" fxFlexFill>
+  <!-- set the width of the side bar -->
+  <div class="left" fxFlex="10%">
+    <h4>Navigation</h4>
+  </div>
+  <!-- set the width of the main content -->
+  <div fxFlex="90%">
+    <!-- the position to drawn the component when routing-->
     <router-outlet></router-outlet>
   </div>
 </div>
-
-
-
-
-
