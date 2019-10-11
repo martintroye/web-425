@@ -16,11 +16,12 @@ h4{
   text-align: center;
   width: 100%;
   margin-top: 4rem;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
 .wrapper{
   width: 100%;
-  margin-top: 10%;
+  margin-top: 3rem;
   padding: 2rem;
 }
 
