@@ -26,6 +26,7 @@ import { Component, OnInit, Input } from '@angular/core';
     padding-top:1rem;
     color: darkblue;
     font-family: Roboto,"Helvetica Neue",sans-serif !important;
+    text-align: center;
   }
 
   `]
