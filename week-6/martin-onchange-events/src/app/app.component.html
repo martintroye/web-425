@@ -1,0 +1,53 @@
+<!--
+============================================
+; Title: Assignment 6.4
+; Author: Troy Martin
+; Date: 10/12/2019
+; Modified By: Troy Martin
+; Description: OnChange() Events
+;===========================================
+-->
+<!-- Define the material toolbar applying our custom menu css -->
+<mat-toolbar class="menu" role="header" color="primary">
+  <!-- Define a single row for the toolbar -->
+  <mat-toolbar-row>
+    <!-- Define the badge for the toolbar -->
+    <button mat-button class="tool__icon-button mat-button">
+      <!-- Use the web material icon -->
+      <mat-icon>web</mat-icon>
+      <span style="margin-left: 5px !important">WEB 425</span>
+    </button>
+    <!-- Define additional buttons for the toolbar -->
+    <button mat-button class="mat-button" routerLink="/">Child</button>
+    <!-- spacing div -->
+    <div fxFlex></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- add the flex row -->
+<div fxLayout="row" fxFlexFill>
+  <!-- set the width of the side bar -->
+  <div class="left" fxFlex="10%">
+    <h4>Navigation</h4>
+  </div>
+  <!-- set the width of the main content -->
+  <div fxFlex="90%">
+    <div class="wrapper">
+      <div class="parent">
+        <h2>Parent</h2>
+        <div>
+          <!-- bind the input to the myGreeting property of the component -->
+          Greetings: <input type="text" [(ngModel)]="myGreeting">
+        </div>
+        <div>
+          <!-- bind the input to the name property of myUser-->
+          User name: <input type="text" [(ngModel)]="myUser.name">
+        </div>
+      </div>
+    <!-- add the child component, binding the greeting and user inputs -->
+    <app-child [greeting]="myGreeting" [user]="myUser"></app-child>
+
+
+    </div>
+  </div>
+</div>
