@@ -1,0 +1,43 @@
+<!--
+============================================
+; Title: Exercise 6.3
+; Author: Troy Martin
+; Date: 10/11/2019
+; Modified By: Troy Martin
+; Description: Output Properties
+;===========================================
+-->
+
+<!-- Define the material toolbar applying our custom menu css -->
+<mat-toolbar class="menu" role="header" color="primary">
+  <!-- Define a single row for the toolbar -->
+  <mat-toolbar-row>
+    <!-- Define the badge for the toolbar -->
+    <button mat-button class="tool__icon-button mat-button">
+      <!-- Use the web material icon -->
+      <mat-icon>web</mat-icon>
+      <span style="margin-left: 5px !important">WEB 425</span>
+    </button>
+    <!-- Define additional buttons for the toolbar -->
+    <button mat-button class="mat-button" routerLink="/">Price Quote</button>
+    <!-- spacing div -->
+    <div fxFlex></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- add the flex row -->
+<div fxLayout="row" fxFlexFill>
+  <!-- set the width of the side bar -->
+  <div class="left" fxFlex="10%">
+    <h4>Navigation</h4>
+  </div>
+  <!-- set the width of the main content -->
+  <div fxFlex="90%">
+    <div class="wrapper">
+        AppComponent received: {{priceQuote?.stockSymbol}} {{priceQuote?.lastPrice | currency: 'USD'}}<br/>
+        <!-- the position to drawn the component when routing-->
+        <app-price-quote (lastPrice)="priceQuoteHandler($event)"></app-price-quote>
+
+    </div>
+  </div>
+</div>
