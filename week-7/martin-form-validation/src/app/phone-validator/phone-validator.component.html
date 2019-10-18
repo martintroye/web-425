@@ -1,0 +1,54 @@
+<!--
+============================================
+; Title: Exercise 7.2
+; Author: Troy Martin
+; Date: 10/18/2019
+; Modified By: Troy Martin
+; Description: Template-Driven Forms
+;===========================================
+-->
+
+<div class="wrapper">
+  <!-- define the form, export the form group into a variable f, set the submit event to call our onSubmit method passing the variable -->
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <!-- define the material card -->
+    <mat-card class="login-panel frm-panel">
+      <!-- define the header for the card -->
+      <mat-card-header class="frm-header">
+        <!-- add a material toolbar to the header -->
+        <mat-toolbar class="frm-toolbar">
+          Phone Validator
+        </mat-toolbar>
+      </mat-card-header>
+
+      <!-- define the material card content -->
+      <mat-card-content class="frm-body">
+        <!-- define the telephone input and bind it using ngModel set validation rules -->
+        <mat-form-field>
+          <input
+            type="text"
+            name="telephone"
+            matInput
+            placeholder="Phone Number"
+            required
+            pattern="[0-9]*"
+            minlength="10"
+            ngModel
+            #phone="ngModel"
+          />
+        </mat-form-field>
+        <!-- use material error to display errors when phone touched and error is matched -->
+        <mat-error *ngIf="phone.touched && phone.hasError('minlength')">Phone has to have at least 10 digits</mat-error>
+        <!-- use material error to display errors when phone touched and error is matched -->
+        <mat-error *ngIf="phone.touched && phone.hasError('required')">Phone is required</mat-error>
+        <!-- use material error to display errors when phone touched and error is matched -->
+        <mat-error *ngIf="phone.touched && phone.hasError('pattern')">Only digits are allowed</mat-error>
+      </mat-card-content>
+
+      <!-- define the container for the buttons -->
+      <mat-card-actions class="frm-actions">
+        <button type="submit" mat-raised-button class="btn" [disabled]="phone.isValid">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
