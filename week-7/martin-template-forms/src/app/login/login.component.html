@@ -1,0 +1,62 @@
+<!--
+============================================
+; Title: Exercise 7.2
+; Author: Troy Martin
+; Date: 10/18/2019
+; Modified By: Troy Martin
+; Description: Template-Driven Forms
+;===========================================
+-->
+
+<div class="wrapper">
+  <!-- define the form, export the form group into a variable f, set the submit event to call our onSubmit method passing the variable -->
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <!-- define the material card -->
+    <mat-card class="login-panel frm-login-panel">
+      <!-- define the header for the card -->
+      <mat-card-header class="frm-login-header">
+        <!-- add a material toolbar to the header -->
+        <mat-toolbar class="frm-login-toolbar">
+          Login Form
+        </mat-toolbar>
+      </mat-card-header>
+
+      <!-- define the material card content -->
+      <mat-card-content class="frm-login-body">
+        <!-- define the user name input and bind it using ngModel -->
+        <mat-form-field>
+          <input type="text" name="username" matInput placeholder="Username" ngModel />
+        </mat-form-field>
+        <!-- define the ssn input and bind it using ngModel -->
+        <mat-form-field>
+          <input type="password" name="ssn" matInput placeholder="SSN" ngModel />
+        </mat-form-field>
+        <!-- define the password input and bind it using ngModel -->
+        <mat-form-field>
+          <input
+            type="password"
+            name="password"
+            matInput
+            placeholder="Password"
+            ngModel
+          />
+        </mat-form-field>
+        <!-- define the confirm password input and bind it using ngModel -->
+        <mat-form-field>
+          <input
+            type="password"
+            name="confirmPassword"
+            matInput
+            placeholder="Confirm Password"
+            ngModel
+          />
+        </mat-form-field>
+      </mat-card-content>
+
+      <!-- define the container for the buttons -->
+      <mat-card-actions class="frm-login-actions">
+        <button type="submit" mat-raised-button class="btn-login">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
