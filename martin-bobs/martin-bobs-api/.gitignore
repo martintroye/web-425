@@ -1,0 +1,14 @@
+# IDE
+.vscode
+.idea
+
+# Node ddependency directories
+node_modules/
+public/css/
+build/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache

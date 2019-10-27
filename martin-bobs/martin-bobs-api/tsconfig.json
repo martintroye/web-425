@@ -1,0 +1,21 @@
+/*
+============================================
+; Title: Exercise 8.2
+; Author: Troy Martin
+; Date: 10/25/2019
+; Modified By: Troy Martin
+; Description: Server-Side Communications with Node.js and Express
+;===========================================
+*/
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "build",
+    "target": "es6",
+    "sourceMap": true
+
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
