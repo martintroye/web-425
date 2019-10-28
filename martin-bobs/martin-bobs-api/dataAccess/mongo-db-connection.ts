@@ -8,16 +8,30 @@
 ;===========================================
 */
 
+// import the mongoose module and alias it as mongoose
 import * as mongoose from 'mongoose';
 
+// declare and export the class
 export class MongoDbConnection {
+  // set the connection string to the mongodb database
   mongoDB = 'mongodb+srv://sa:qWVNk4b7XRPE611Q@buwebdev-cluster-1-opi0o.mongodb.net/bobs-computer-repair?retryWrites=true';
+  // declare the mongodb connection
   db: mongoose.Connection;
 
+  /*
+  ; Params: none
+  ; Response: none
+  ; Description: Default constructor
+  */
   constructor() {
 
   }
 
+  /*
+  ; Params: none
+  ; Response: none
+  ; Description: Create the connection to the MongoDB
+  */
   connect() {
     // Call Mongoose connect function passing the connection string
     mongoose.connect(this.mongoDB, {

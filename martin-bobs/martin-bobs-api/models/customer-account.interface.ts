@@ -8,9 +8,10 @@
 ;===========================================
 */
 
-
+// import the mongoose module
 import { Schema, Document, Model } from 'mongoose';
 
+// declare and export the customer account interface, extending the mongoose document
 export interface CustomerAccount extends Document {
   name: string;
   addressLine1: string;
@@ -21,8 +22,7 @@ export interface CustomerAccount extends Document {
   contacts: Contact[];
 }
 
-export interface CustomerAccountModel extends Model<CustomerAccount> {};
-
+// declare and export the contact interface, extending the mongoose document
 export interface Contact extends Document {
   firstName: string;
   lastName: string;
@@ -33,12 +33,14 @@ export interface Contact extends Document {
   emails: EmailAddress[];
 }
 
+// declare and export the customer account interface, extending the mongoose document
 export interface User extends Document {
   userName: string;
   password: string;
   lastLogin: Date;
 }
 
+// declare and export the customer account interface, extending the mongoose document
 export interface PhoneNumber extends Document {
   phoneNumber: string;
   type: string;
@@ -46,11 +48,13 @@ export interface PhoneNumber extends Document {
   isPrimary: boolean;
 }
 
+// declare and export the email address interface, extending the mongoose document
 export interface EmailAddress extends Document {
   emailAddress: string;
   isPrimary: boolean;
 }
 
+// declare and export the order interface, extending the mongoose document
 export interface Order extends Document {
   orderDate: Date;
   orderCompleted: Date;
@@ -60,6 +64,7 @@ export interface Order extends Document {
   items: OrderItem[];
 }
 
+// declare and export the order item interface, extending the mongoose document
 export interface OrderItem extends Document {
   quantity: number;
   itemTotal: number;
@@ -67,12 +72,14 @@ export interface OrderItem extends Document {
   technicians: Technician[];
 }
 
+// declare and export the price book item interface, extending the mongoose document
 export interface PriceBookItem extends Document {
   name: string;
   price: number;
   type: string;
 }
 
+// declare and export the technician interface, extending the mongoose document
 export interface Technician extends Document {
   name: string;
   emailAddress: string;
