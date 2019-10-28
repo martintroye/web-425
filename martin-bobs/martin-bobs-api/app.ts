@@ -8,9 +8,11 @@
 ;===========================================
 */
 
-// import express
+// import express module and alias as express
 import * as express from 'express';
+// import the mongodb connection helper
 import { MongoDbConnection } from './dataAccess/mongo-db-connection';
+// import the user router
 import { UsersRouter } from './routers/users-router';
 
 // declare the express application
