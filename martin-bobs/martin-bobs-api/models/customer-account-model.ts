@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Web425
+; Author: Troy Martin
+; Date: 10/26/2019
+; Modified By: Troy Martin
+; Description: Bob's Computer Repair Shop API
+;===========================================
+*/
+
 import * as mongoose from 'mongoose';
 import { CustomerAccount } from './customer-account.interface';
 
@@ -66,7 +76,11 @@ const customerAccountSchema = new mongoose.Schema({
   contacts: [contactSchema]
 });
 
-const customerAccountModel = mongoose.model<CustomerAccount & mongoose.Document>('CustomerAccount', customerAccountSchema);
-export default customerAccountModel;
+const customerAccountModel = mongoose.model<CustomerAccount>('CustomerAccountModel', customerAccountSchema, 'accounts');
+export = customerAccountModel;
+
+
+
+
 
 

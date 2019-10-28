@@ -8,30 +8,25 @@
 ;===========================================
 */
 import * as express from 'express';
-import { MongoDbConnection } from '../dataAccess/mongo-db-connection';
+import customerAccountModel = require('../models/customer-account-model');
 
 export class AccountsController {
-
-  accountRepository: MongoDbConnection;
+  model = customerAccountModel;
 
   constructor() {
-    this.accountRepository = new MongoDbConnection();
   }
 
-  getAccountById(request: express.Request, response: express.Response) {
-    throw new Error('Method not implemented.');
+  getAccountByUser(req: express.Request, res: express.Response) {
+    const userNameValue = req.params.username;
+    const query = { 'contacts.user.userName': userNameValue };
+    this.model.findOne(query, (err, result) => {
+      if (!err) {
+        res.send(result.toJSON());
+      } else if (res === null) {
+        res.status(401).send('oops, we could not find the user');
+      } else {
+        res.status(400).send(err);
+      }
+    });
   }
-
-  getAllAccounts(request: express.Request, response: express.Response) {
-    throw new Error('Method not implemented.');
-  }
-
-  createAccount(request: express.Request, response: express.Response) {
-    throw new Error('Method not implemented.');
-  }
-
-  updateAccount(request: express.Request, response: express.Response) {
-    throw new Error('Method not implemented.');
-  }
-
 }
