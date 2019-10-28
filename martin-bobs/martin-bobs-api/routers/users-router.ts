@@ -22,7 +22,7 @@ export class UsersRouter {
     const controller = new AccountsController();
 
     this.routes.get('/', (req, res) => {
-      res.send('Bobs Computer Repair Shop API');
+      res.status(400).send('Bobs Computer Repair Shop API');
     });
 
     this.routes.get('/users/:username/accounts', controller.getAccountByUser.bind(controller));
