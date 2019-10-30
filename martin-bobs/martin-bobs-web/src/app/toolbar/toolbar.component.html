@@ -1,0 +1,28 @@
+<!--
+============================================
+; Title: {{Title}}
+; Author: Troy Martin
+; Date: xx/xx/20xx
+; Modified By: Troy Martin
+; Description: {{Title}}
+;===========================================
+-->
+
+<!-- Define the material toolbar applying our custom menu css -->
+<mat-toolbar class="menu" role="header" color="primary">
+  <!-- Define a single row for the toolbar -->
+  <mat-toolbar-row>
+    <!-- Define the badge for the toolbar -->
+    <button mat-flat-button color="primary">
+      <!-- Use the web material icon -->
+      <mat-icon class="logo">build</mat-icon>
+      <span class="mat-h1" style="margin-left: 1.5rem !important">Bob's Computer Repair Shop</span>
+    </button>
+    <!-- spacing div -->
+    <div fxFlex></div>
+    <button mat-flat-button color="accent" routerLink="login" title="Profile">
+      <!-- use a material icon-->
+      <mat-icon>perm_identity</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
