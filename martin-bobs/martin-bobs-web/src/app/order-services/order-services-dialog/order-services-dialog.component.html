@@ -1,0 +1,23 @@
+<div fxLayout="column" fxFlexFill>
+  <h2 mat-dialog-title>Order Services</h2>
+  <mat-dialog-content>
+    <!--{{products[i].price | currency: 'USD'}}-->
+    <form fxLayout="column wrap">
+      <div fxLayout="row" *ngFor="let product of products; let i = index" style="padding-top:1rem;">
+        <mat-checkbox fxFlexAlign="center" color="primary" id="{{ i }}">
+          {{ products[i].description }}
+        </mat-checkbox>
+        <mat-chip-list fxFlexAlign="center" style="justify-self: end;">
+          <mat-chip>{{ products[i].price | currency: "USD" }}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayoutAlign="end center">
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+    <button mat-flat-button color="primary" [mat-dialog-close]="true">
+      Place Order
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,1 +1,13 @@
-<p>order-services works!</p>
+<div fxLayout="row" fxFlexFill fxLayoutGap="20px">
+  <div fxLayout="column" fxFlex style="background-color: red;"></div>
+  <div
+    fxLayout="column"
+    fxFlex
+    class="order__button--centered"
+    style="background-color: purple;"
+    (click)="orderNow()"
+  >
+    <button mat-flat-button color="primary">Order Now</button>
+  </div>
+  <div fxLayout="column" fxFlex style="background-color: green;"></div>
+</div>

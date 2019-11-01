@@ -11,7 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 // imports from the angular forms module
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // imports from the angular material module
 import {   MatToolbarModule,
   MatMenuModule,
@@ -19,7 +19,12 @@ import {   MatToolbarModule,
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
-  MatIconModule, } from '@angular/material';
+  MatIconModule,
+  MatDialog,
+  MatDialogModule,
+  MatCheckboxModule,
+  MatBadgeModule,
+  MatChipsModule, } from '@angular/material';
 // imports from the angular flex layout module
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,13 +34,20 @@ import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { OrderServicesComponent } from './order-services/order-services.component';
 import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.component';
+import { ServicesOfferedComponent } from './services-offered/services-offered.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { OrderServicesDialogComponent } from './order-services/order-services-dialog/order-services-dialog.component';
+import { ProductOfferingService } from './order-services/product-offering.service';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent, ToolbarComponent, FooterComponent, HomePageComponent, OrderServicesComponent, InvoiceSummaryComponent],
+  declarations: [AppComponent, ToolbarComponent, FooterComponent, HomePageComponent,
+    OrderServicesComponent, InvoiceSummaryComponent, ServicesOfferedComponent, ArticlesComponent, OrderServicesDialogComponent],
   // modules used
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
     MatToolbarModule,
@@ -45,13 +57,18 @@ import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.compo
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatBadgeModule,
+    MatChipsModule
   ],
   // modules exposed
   exports: [MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule],
-  // services and injectables
-  providers: [],
+  // services and injectable components
+  providers: [MatDialog, ProductOfferingService, CurrencyPipe],
   // component used to start the module
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [OrderServicesDialogComponent]
 })
 export class AppModule {}
