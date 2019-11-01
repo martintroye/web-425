@@ -1,14 +1,13 @@
-<div fxLayout="column" fxFlexFill>
+<div fxLayout="column" (ngSubmit)="submit()" fxFlexFill style="padding: 10px;">
   <h2 mat-dialog-title>Order Services</h2>
   <mat-dialog-content>
-    <!--{{products[i].price | currency: 'USD'}}-->
-    <form fxLayout="column wrap">
-      <div fxLayout="row" *ngFor="let product of products; let i = index" style="padding-top:1rem;">
-        <mat-checkbox fxFlexAlign="center" color="primary" id="{{ i }}">
+    <form [formGroup]="orderGroup" fxLayout="column wrap">
+      <div fxLayout="row" fxLayoutAlign="space-between center" formArrayName="productOfferings" *ngFor="let product of orderGroup.controls.productOfferings.controls; let i = index" style="padding-top:1rem;">
+        <mat-checkbox color="primary" id="{{ i }}" formControlName="{{ i }}">
           {{ products[i].description }}
         </mat-checkbox>
-        <mat-chip-list fxFlexAlign="center" style="justify-self: end;">
-          <mat-chip>{{ products[i].price | currency: "USD" }}</mat-chip>
+        <mat-chip-list>
+          <mat-chip (click)="toggleService(i)" color="accent" [selected]="this.products[i].selected !== null && this.products[i].selected">{{ products[i].price | currency: "USD" }}</mat-chip>
         </mat-chip-list>
       </div>
     </form>
@@ -16,7 +15,7 @@
   <mat-dialog-actions fxLayoutAlign="end center">
     <button mat-flat-button mat-dialog-close>Cancel</button>
     <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-    <button mat-flat-button color="primary" [mat-dialog-close]="true">
+    <button mat-flat-button color="primary" [mat-dialog-close]="true" (click)="submit()">
       Place Order
     </button>
   </mat-dialog-actions>
