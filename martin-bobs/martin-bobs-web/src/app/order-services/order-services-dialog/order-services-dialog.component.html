@@ -10,6 +10,10 @@
           <mat-chip (click)="toggleService(i)" color="accent" [selected]="this.products[i].selected !== null && this.products[i].selected">{{ products[i].price | currency: "USD" }}</mat-chip>
         </mat-chip-list>
       </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="order--total">
+        <span><b>Total</b></span>
+        <span *ngIf="orderGrandTotal > 0">{{ orderGrandTotal | currency: "USD" }}</span>
+      </div>
     </form>
   </mat-dialog-content>
   <mat-dialog-actions fxLayoutAlign="end center">
