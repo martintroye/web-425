@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ProductOfferingService } from '../product-offering.service';
 import { ProductOffering } from '../models/product-offering.model';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
+import { ProductOfferingService } from 'src/app/shared/services/product-offering.service';
 
 @AutoUnsubscribe()
 @Component({
@@ -24,6 +24,7 @@ export class OrderServicesDialogComponent implements OnInit, OnDestroy {
 
       const formControls = this.products.map(control => new FormControl(false));
       this.orderGroup = this.formBuilder.group({ productOfferings: new FormArray(formControls) });
+      this.orderGroup.addControl('repairs', new FormControl(''));
 
       this.valueChangesSubscription = this.orderGroup.valueChanges.subscribe((productOfferings) => {
         const selectedServices = this.getSelectedServices();

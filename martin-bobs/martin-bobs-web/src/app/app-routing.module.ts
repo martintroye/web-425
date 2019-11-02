@@ -7,8 +7,7 @@ import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.compo
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
-  {path: 'order', component: OrderServicesComponent},
-  {path: 'summary', component: InvoiceSummaryComponent}
+  {path: 'invoices', component: InvoiceSummaryComponent}
 ];
 
 @NgModule({

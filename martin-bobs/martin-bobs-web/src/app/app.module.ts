@@ -37,8 +37,8 @@ import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.compo
 import { ServicesOfferedComponent } from './services-offered/services-offered.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { OrderServicesDialogComponent } from './order-services/order-services-dialog/order-services-dialog.component';
-import { ProductOfferingService } from './order-services/product-offering.service';
 import { CurrencyPipe } from '@angular/common';
+import { ProductOfferingService } from './shared/services/product-offering.service';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, FooterComponent, HomePageComponent,

@@ -1,13 +1,16 @@
 <div fxLayout="row" fxFlexFill fxLayoutGap="20px">
-  <div fxLayout="column" fxFlex style="background-color: red;"></div>
+  <div fxFlex="1 1 33%" fxLayoutAlign="start center">
+    <img src="../../assets/foto-sushi-6anudmpILw4-unsplash.jpg" style="padding-right:3px;">
+    <p style="padding-right:3px;">Meet our founder Bob. Bob loves technology. He has been helping people fix computer issues in the Omaha and surrounding areas for 15 years. You can trust Bob with your device.</p>
+  </div>
   <div
     fxLayout="column"
     fxFlex
     class="order__button--centered"
-    style="background-color: purple;"
-    (click)="orderNow()"
-  >
+    (click)="orderNow()">
     <button mat-flat-button color="primary">Order Now</button>
   </div>
-  <div fxLayout="column" fxFlex style="background-color: green;"></div>
+  <div fxLayout="column" fxFlex="1 1 33%">
+    <p style="padding:3px;">Bob's Computer Repair Shop has been voted by you to be Omaha's Best 10 years in a row. So if your phone, tablet, laptop, or desktop is giving you fits, or if you need a nasty virus removed call Bob he can help.</p>
+  </div>
 </div>
