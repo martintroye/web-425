@@ -1,11 +1,12 @@
-<div fxLayout="column" style="background-color: #E2F2FF;">
-  <div fxLayout="row" fxLayoutAlign="center center">
-    <h2>Our Services</h2>
+<div fxLayout="column" fxFlexFill style="background-color: #E2F2FF;">
+  <div fxLayout="row" fxFlex="1 1 30%" fxLayoutAlign="center center">
+    <h2 style="margin:5px;">Our Services</h2>
   </div>
-  <div fxLayout="row" fxLayoutAlign="start center">
-    <div fxLayout="column wrap" fxLayoutAlign="start center">
-      <mat-icon>wrench</mat-icon>
-      <p>Repairs</p>
-    </div>
+  <div fxFlex  fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-button *ngFor="let product of products">
+          <mat-icon class="services__icon" inline=true>{{product.icon}}</mat-icon>
+          {{product.description}}
+      </button>
+
   </div>
 </div>

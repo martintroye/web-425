@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductOfferingService } from '../shared/services/product-offering.service';
+import { ProductOffering } from '../order-services/models/product-offering.model';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-services-offered',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesOfferedComponent implements OnInit {
 
-  constructor() { }
+  products: ProductOffering[] = [];
+
+  constructor(private productOfferingService: ProductOfferingService) { }
 
   ngOnInit() {
+    const p = this.productOfferingService.getProducts();
+    const r = this.productOfferingService.getRepair();
+
+    forkJoin(p, r).subscribe(([prod, repair]) => {
+        this.products.push(repair);
+        prod.forEach(x => {
+          this.products.push(x);
+        });
+    });
+
   }
 
 }

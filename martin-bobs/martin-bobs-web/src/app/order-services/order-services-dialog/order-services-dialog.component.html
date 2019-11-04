@@ -1,5 +1,5 @@
 <div fxLayout="column" (ngSubmit)="submit()" fxFlexFill style="padding: 10px;">
-  <h2 mat-dialog-title>Order Services</h2>
+  <h2 mat-dialog-title>Our Services</h2>
   <mat-dialog-content>
     <form [formGroup]="orderGroup" fxLayout="column wrap">
       <div fxLayout="row" fxLayoutAlign="space-between center" formArrayName="productOfferings" *ngFor="let product of orderGroup.controls.productOfferings.controls; let i = index" style="padding-top:1rem;">

@@ -26,7 +26,7 @@ export class ProductOfferingService {
     const repair = new ProductOffering();
     repair.description = 'Repair';
     repair.price = 50;
-    repair.icon = 'wrench';
+    repair.icon = 'build';
     return of(repair);
   }
 }
