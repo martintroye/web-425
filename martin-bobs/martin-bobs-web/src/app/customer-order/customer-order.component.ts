@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Bob's Computer Repair Shop
+; Author: Troy Martin
+; Date: 11/05/2019
+; Modified By: Troy Martin
+; Description: WEB425
+;===========================================
+*/
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerOrderDialogComponent } from './customer-order-dialog/customer-order-dialog.component';

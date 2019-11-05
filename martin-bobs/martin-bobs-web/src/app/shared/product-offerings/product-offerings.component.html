@@ -1,3 +1,12 @@
+<!--
+============================================
+; Title: Bob's Computer Repair Shop
+; Author: Troy Martin
+; Date: 11/05/2019
+; Modified By: Troy Martin
+; Description: WEB425
+;===========================================
+-->
 <form [formGroup]="orderGroup" fxLayout="column wrap">
   <div fxLayout="row" fxLayoutAlign="space-between center" formArrayName="productOfferings" *ngFor="let product of orderGroup.controls.productOfferings.controls; let i = index" style="padding-top:1rem;">
     <mat-checkbox color="primary" id="{{ i }}" formControlName="{{ i }}">

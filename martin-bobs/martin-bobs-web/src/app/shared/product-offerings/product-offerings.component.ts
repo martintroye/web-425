@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Bob's Computer Repair Shop
+; Author: Troy Martin
+; Date: 11/05/2019
+; Modified By: Troy Martin
+; Description: WEB425
+;===========================================
+*/
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ProductOffering } from '../models/product-offering.model';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';

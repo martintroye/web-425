@@ -1,10 +1,10 @@
 /*
 ============================================
-; Title: <Assignment>
+; Title: Bob's Computer Repair Shop
 ; Author: Troy Martin
-; Date: xx/xx/2019
+; Date: 11/05/2019
 ; Modified By: Troy Martin
-; Description: <Description>
+; Description: WEB425
 ;===========================================
 */
 import { BrowserModule } from '@angular/platform-browser';

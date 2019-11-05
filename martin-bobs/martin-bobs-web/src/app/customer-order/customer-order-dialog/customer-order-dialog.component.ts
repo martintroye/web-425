@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Bob's Computer Repair Shop
+; Author: Troy Martin
+; Date: 11/05/2019
+; Modified By: Troy Martin
+; Description: WEB425
+;===========================================
+*/
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { ProductOffering } from 'src/app/shared/models/product-offering.model';
