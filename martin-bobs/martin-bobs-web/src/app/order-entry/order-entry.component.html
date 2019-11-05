@@ -1,15 +1,22 @@
 <div fxLayout="row" fxLayoutAlign="center center">
     <form [formGroup]="entryGroup" fxLayout="column wrap"  fxFlex="1 1 50%">
       <app-product-offerings (total)="setTotal($event)" (selectedProducts)="setSelectedProducts($event)"></app-product-offerings>
-      <div fxLayout="row" fxLayoutAlign="start center">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
         <mat-form-field fxFlex="1 1 50%">
           <input matInput type="number" formControlName="laborHours" placeholder="Labor Hours">
         </mat-form-field>
+        <mat-chip-list>
+            <mat-chip [selected]="this.laborGrandTotal > 0" color="accent">{{this.laborGrandTotal | currency: 'USD'}}</mat-chip>
+        </mat-chip-list>
       </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
         <mat-form-field fxFlex="1 1 50%">
           <input matInput type="number" formControlName="partsTotal" placeholder="Parts Total">
         </mat-form-field>
+        <mat-chip-list>
+            <mat-chip [selected]="this.partsGrandTotal > 0" color="accent">{{this.partsGrandTotal | currency: 'USD'}}</mat-chip>
+        </mat-chip-list>
+
       </div>
       <div fxLayout="row" fxLayoutAlign="space-between center" class="order--total">
         <span><b>Total</b></span>
