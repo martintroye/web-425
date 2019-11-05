@@ -1,1 +1,68 @@
-<p>invoice-summary works!</p>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div fxLayout="column wrap" fxFlex="1 1 50%">
+    <mat-card>
+      <mat-card-header>
+        <mat-toolbar>
+          Invoice #23456
+        </mat-toolbar>
+      </mat-card-header>
+      <mat-card-content>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          *ngFor="
+            let product of invoice.services;
+            let i = index
+          "
+          style="padding-top:1rem;"
+        >
+          <span>{{invoice.services[i].description}}</span>span>
+          <mat-chip-list>
+            <mat-chip
+              color="accent"
+              [selected]="invoice.services[i].selected"
+              >{{ invoice.services[i].price | currency: "USD" }}</mat-chip
+            >
+          </mat-chip-list>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <span fxFlex="1 1 50%"> Labor hours {{ invoice.laborHours }} </span>
+          <mat-chip-list>
+            <mat-chip [selected]="this.laborGrandTotal > 0" color="accent">{{
+              this.laborGrandTotal | currency: "USD"
+            }}</mat-chip>
+          </mat-chip-list>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <span fxFlex="1 1 50%">
+            Parts
+          </span>
+          <mat-chip-list>
+            <mat-chip [selected]="invoice.partsTotal > 0" color="accent">{{
+              invoice.partsTotal | currency: "USD"
+            }}</mat-chip>
+          </mat-chip-list>
+        </div>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          class="order--total"
+        >
+          <span><b>Total</b></span>
+          <span *ngIf="orderGrandTotal > 0">{{
+            orderGrandTotal | currency: "USD"
+          }}</span>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button mat-raised-button>Cancel</button>
+
+          <button mat-raised-button color="primary" (click)="submit()">
+            Pay Now
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

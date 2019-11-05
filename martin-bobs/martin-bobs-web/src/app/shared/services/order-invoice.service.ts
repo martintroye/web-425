@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ProductOffering } from '../models/product-offering.model';
+import { InvoiceSummary } from '../models/invoice-summary.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductOfferingService {
+export class OrderInvoiceService {
   private products: ProductOffering[] = [] ;
+  private invoice: InvoiceSummary;
 
   constructor() {
     this.products.push({description: 'Password Reset', price: 39.99, icon: 'lock_open'});
@@ -29,5 +31,18 @@ export class ProductOfferingService {
     repair.price = 50;
     repair.icon = 'build';
     return of(repair);
+  }
+
+  createInvoice(invoice: InvoiceSummary): Observable<number> {
+    this.invoice = invoice;
+    return of(1);
+  }
+
+  getInvoiceById(id: number): Observable<InvoiceSummary> {
+    if (this.invoice) {
+      return of(this.invoice);
+    }
+
+    return of(null);
   }
 }

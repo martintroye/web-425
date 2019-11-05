@@ -1,0 +1,19 @@
+h2 {
+  margin-block-end: 0;
+}
+
+button {
+  margin-left: 10px;
+}
+
+.mat-toolbar {
+  background-color: unset;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: unset !important;
+}
+
+.mat-card-actions {
+  padding: unset !important;
+}

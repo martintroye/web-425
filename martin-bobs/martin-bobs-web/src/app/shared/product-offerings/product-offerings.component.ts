@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ProductOffering } from '../models/product-offering.model';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { ProductOfferingService } from '../services/product-offering.service';
+import { OrderInvoiceService } from '../services/order-invoice.service';
 
 @Component({
   selector: 'app-product-offerings',
@@ -21,7 +21,7 @@ export class ProductOfferingsComponent implements OnInit {
   @Output() selectedProducts = new EventEmitter<ProductOffering[]>();
   @Output() total = new EventEmitter<number>();
 
-  constructor(private productOfferingService: ProductOfferingService, private formBuilder: FormBuilder) { }
+  constructor(private orderInvoiceService: OrderInvoiceService, private formBuilder: FormBuilder) { }
 
   toggleService(index: number) {
     const control = (this.orderGroup.controls.productOfferings as FormArray).controls[index];
@@ -41,7 +41,7 @@ export class ProductOfferingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productOfferingService.getProducts().subscribe((products) => {
+    this.orderInvoiceService.getProducts().subscribe((products) => {
       this.products = products;
 
       const formControls = this.products.map(control => new FormControl(false));

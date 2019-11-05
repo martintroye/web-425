@@ -38,13 +38,14 @@ import { ServicesOfferedComponent } from './services-offered/services-offered.co
 import { ArticlesComponent } from './articles/articles.component';
 import { CustomerOrderDialogComponent } from './customer-order/customer-order-dialog/customer-order-dialog.component';
 import { CurrencyPipe } from '@angular/common';
-import { ProductOfferingService } from './shared/services/product-offering.service';
 import { ProductOfferingsComponent } from './shared/product-offerings/product-offerings.component';
 import { OrderEntryComponent } from './order-entry/order-entry.component';
+import { OrderInvoiceService } from './shared/services/order-invoice.service';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, FooterComponent, HomePageComponent,
-    CustomerOrderComponent, InvoiceSummaryComponent, ServicesOfferedComponent, ArticlesComponent, CustomerOrderDialogComponent, ProductOfferingsComponent, OrderEntryComponent],
+    CustomerOrderComponent, InvoiceSummaryComponent, ServicesOfferedComponent,
+    ArticlesComponent, CustomerOrderDialogComponent, ProductOfferingsComponent, OrderEntryComponent],
   // modules used
   imports: [
     BrowserModule,
@@ -68,7 +69,7 @@ import { OrderEntryComponent } from './order-entry/order-entry.component';
   // modules exposed
   exports: [MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule],
   // services and injectable components
-  providers: [MatDialog, ProductOfferingService, CurrencyPipe],
+  providers: [MatDialog, OrderInvoiceService, CurrencyPipe],
   // component used to start the module
   bootstrap: [AppComponent],
   entryComponents: [CustomerOrderDialogComponent]
