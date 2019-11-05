@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 60%">
+    <app-product-offerings (total)="setTotal($event)" (selectedProducts)="setSelectedProducts($event)"></app-product-offerings>
+    <form [formGroup]="entryGroup">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-form-field fxFlex fxFlexFill>
+          <textarea matInput readonly formControlName="repairs" placeholder="Repairs {{ 50.00 | currency: 'USD' }}/hr + Parts"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="order--total">
+        <span><b>Total</b></span>
+        <span *ngIf="orderGrandTotal > 0">{{ orderGrandTotal | currency: "USD" }}</span>
+      </div>
+    </form>
+</div>
+

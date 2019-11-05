@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ProductOffering } from 'src/app/order-services/models/product-offering.model';
+import { ProductOffering } from '../models/product-offering.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,7 @@ export class ProductOfferingService {
   }
 
   getProducts(): Observable<ProductOffering[]> {
+    this.products.forEach(p => p.selected = null);
     return of(this.products);
   }
 

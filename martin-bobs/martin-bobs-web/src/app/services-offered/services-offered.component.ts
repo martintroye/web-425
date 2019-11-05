@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductOfferingService } from '../shared/services/product-offering.service';
-import { ProductOffering } from '../order-services/models/product-offering.model';
+import { ProductOffering } from '../shared/models/product-offering.model';
 import { forkJoin } from 'rxjs';
 
 @Component({

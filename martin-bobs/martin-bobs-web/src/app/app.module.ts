@@ -32,17 +32,19 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { OrderServicesComponent } from './order-services/order-services.component';
+import { CustomerOrderComponent } from './customer-order/customer-order.component';
 import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.component';
 import { ServicesOfferedComponent } from './services-offered/services-offered.component';
 import { ArticlesComponent } from './articles/articles.component';
-import { OrderServicesDialogComponent } from './order-services/order-services-dialog/order-services-dialog.component';
+import { CustomerOrderDialogComponent } from './customer-order/customer-order-dialog/customer-order-dialog.component';
 import { CurrencyPipe } from '@angular/common';
 import { ProductOfferingService } from './shared/services/product-offering.service';
+import { ProductOfferingsComponent } from './shared/product-offerings/product-offerings.component';
+import { OrderEntryComponent } from './order-entry/order-entry.component';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, FooterComponent, HomePageComponent,
-    OrderServicesComponent, InvoiceSummaryComponent, ServicesOfferedComponent, ArticlesComponent, OrderServicesDialogComponent],
+    CustomerOrderComponent, InvoiceSummaryComponent, ServicesOfferedComponent, ArticlesComponent, CustomerOrderDialogComponent, ProductOfferingsComponent, OrderEntryComponent],
   // modules used
   imports: [
     BrowserModule,
@@ -69,6 +71,6 @@ import { ProductOfferingService } from './shared/services/product-offering.servi
   providers: [MatDialog, ProductOfferingService, CurrencyPipe],
   // component used to start the module
   bootstrap: [AppComponent],
-  entryComponents: [OrderServicesDialogComponent]
+  entryComponents: [CustomerOrderDialogComponent]
 })
 export class AppModule {}

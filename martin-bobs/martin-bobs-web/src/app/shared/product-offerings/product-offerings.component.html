@@ -1,0 +1,12 @@
+<form [formGroup]="orderGroup" fxLayout="column wrap">
+  <div fxLayout="row" fxLayoutAlign="space-between center" formArrayName="productOfferings" *ngFor="let product of orderGroup.controls.productOfferings.controls; let i = index" style="padding-top:1rem;">
+    <mat-checkbox color="primary" id="{{ i }}" formControlName="{{ i }}">
+      {{ products[i].description }}
+    </mat-checkbox>
+    <mat-chip-list>
+      <mat-chip (click)="toggleService(i)" color="accent" [selected]="this.products[i].selected !== null && this.products[i].selected">{{ products[i].price | currency: "USD" }}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+</form>
+
