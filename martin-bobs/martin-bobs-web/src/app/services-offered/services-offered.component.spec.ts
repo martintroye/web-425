@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ServicesOfferedComponent } from './services-offered.component';
 
+//Create at least 5 unit tests, validating the code you have written.
+//Completed test document.
+
 describe('ServicesOfferedComponent', () => {
   let component: ServicesOfferedComponent;
   let fixture: ComponentFixture<ServicesOfferedComponent>;
