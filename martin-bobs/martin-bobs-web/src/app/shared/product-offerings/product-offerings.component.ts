@@ -17,6 +17,7 @@ import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 // import our custom order invoice service
 import { OrderInvoiceService } from '../services/order-invoice.service';
+import { CustomerOrder } from '../models/customer-order.model';
 
 // define the component
 @Component({
@@ -39,11 +40,21 @@ export class ProductOfferingsComponent implements OnInit {
   orderGrandTotal = 0.00;
   // declare the selected products and set the default
   selectedProductList: ProductOffering[] = [];
+  currentCustomerOrder: CustomerOrder;
 
   // declare the selected products output and set the event emitter
   @Output() selectedProducts = new EventEmitter<ProductOffering[]>();
   // declare the total and set the event emitter
   @Output() total = new EventEmitter<number>();
+  // declare the input for a customer order
+  @Input()
+  set currentOrder(order: CustomerOrder) {
+    this.currentCustomerOrder = order;
+    this.loadCustomerOrder();
+  }
+  get currentOrder(): CustomerOrder {
+    return this.currentCustomerOrder;
+  }
 
   /*
   ; Params: orderInvoiceService: OrderInvoiceService, formBuilder: FormBuilder
@@ -88,6 +99,21 @@ export class ProductOfferingsComponent implements OnInit {
     this.products[index].selected = checked;
     // if checked return the service if not return null
     return checked ? this.products[index] : null;
+  }
+
+  loadCustomerOrder() {
+    if (this.currentCustomerOrder
+      && this.currentCustomerOrder.selectedServices
+      && this.products) {
+
+      this.currentCustomerOrder.selectedServices.forEach((service) => {
+        for (let i = 0; i > this.products.length; i++) {
+          if (this.products[i].description === service.description) {
+            this.toggleService(i);
+          }
+        }
+      });
+    }
   }
 
   /*

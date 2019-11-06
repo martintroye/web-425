@@ -15,6 +15,7 @@ import { Observable, of } from 'rxjs';
 import { ProductOffering } from '../models/product-offering.model';
 // import our custom model for the invoice summary
 import { InvoiceSummary } from '../models/invoice-summary.model';
+import { CustomerOrder } from '../models/customer-order.model';
 
 // declare the injectable service
 @Injectable({
@@ -22,10 +23,13 @@ import { InvoiceSummary } from '../models/invoice-summary.model';
 })
 // declare and export the service class
 export class OrderInvoiceService {
+
   // declare and set the default array of product offerings
   private products: ProductOffering[] = [] ;
   // declare the current invoice
   private invoice: InvoiceSummary;
+  // declare the current customer order
+  private customerOrder: CustomerOrder;
 
   /*
   ; Params: none
@@ -96,6 +100,34 @@ export class OrderInvoiceService {
     }
 
     // return observable null if empty
+    return of(null);
+  }
+
+  /*
+  ; Params: order: CustomerOrder
+  ; Response: Observable number
+  ; Description: Store the customer order and return its id
+  */
+  submitOrder(order: CustomerOrder): Observable<number> {
+    // store the customer order
+    this.customerOrder = order;
+    // return an observable default id
+    return of(1);
+  }
+
+  /*
+  ; Params: none
+  ; Response: Observable CustomerOrder
+  ; Description: Get the customer order
+  */
+  getCurrentOrder(): Observable<CustomerOrder> {
+    // is there a customer order stored in the property
+    if (this.customerOrder) {
+      // return an observable using the stored order
+      return of(this.customerOrder);
+    }
+
+    // return a observable using a null since the order does not exist
     return of(null);
   }
 }

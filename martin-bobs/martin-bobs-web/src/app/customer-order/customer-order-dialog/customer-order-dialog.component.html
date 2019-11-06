@@ -11,7 +11,10 @@
   <h2 mat-dialog-title>Our Services</h2>
   <mat-dialog-content>
     <!-- bind the total and selected products using functions-->
-    <app-product-offerings (total)="setTotal($event)" (selectedProducts)="setSelectedProducts($event)"></app-product-offerings>
+    <app-product-offerings
+      (total)="setTotal($event)"
+      (selectedProducts)="setSelectedProducts($event)"
+      [currentOrder]="currentOrder"></app-product-offerings>
     <!-- define the form -->
     <form [formGroup]="repairGroup" (ngSubmit)="submit()">
       <div fxLayout="row" fxLayoutAlign="center center">

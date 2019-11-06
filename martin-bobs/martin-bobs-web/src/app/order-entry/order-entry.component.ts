@@ -16,11 +16,12 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 // imports from the rxjs module
 import { Subscription } from 'rxjs';
 // imports from the angular router module
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 // import our custom invoice summary model
 import { InvoiceSummary } from '../shared/models/invoice-summary.model';
 // import our custom order invoice service
 import { OrderInvoiceService } from '../shared/services/order-invoice.service';
+import { CustomerOrder } from '../shared/models/customer-order.model';
 
 // declare the component
 @Component({
@@ -47,6 +48,8 @@ export class OrderEntryComponent implements OnInit {
   partsGrandTotal = 0.00;
   // the default repair offering
   repair: ProductOffering;
+  // the current customer order
+  currentOrder: CustomerOrder;
 
   /*
   ; Params: formBuilder: FormBuilder, router: Router, orderInvoiceService: OrderInvoiceService
@@ -56,7 +59,8 @@ export class OrderEntryComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private orderInvoiceService: OrderInvoiceService) { }
+    private orderInvoiceService: OrderInvoiceService,
+    private route: ActivatedRoute) { }
 
   /*
   ; Params: none
@@ -74,6 +78,11 @@ export class OrderEntryComponent implements OnInit {
       // add the labor and parts controls
       this.entryGroup.addControl('laborHours', new FormControl(''));
       this.entryGroup.addControl('partsTotal', new FormControl(''));
+
+      this.orderInvoiceService.getCurrentOrder().subscribe((order) => {
+        console.log(order);
+        this.currentOrder = order;
+      });
 
       // declare the subscription to watch for changes to the values
       this.valueChangesSubscription = this.entryGroup.valueChanges.subscribe(() => {

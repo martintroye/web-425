@@ -21,6 +21,7 @@
         <app-product-offerings
           (total)="setTotal($event)"
           (selectedProducts)="setSelectedProducts($event)"
+          [(currentOrder)]="currentOrder"
         ></app-product-offerings>
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <mat-form-field fxFlex="1 1 50%">

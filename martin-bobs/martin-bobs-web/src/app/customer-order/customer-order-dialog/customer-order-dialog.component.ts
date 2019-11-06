@@ -15,6 +15,8 @@ import { ProductOffering } from 'src/app/shared/models/product-offering.model';
 import { CustomerOrder } from 'src/app/shared/models/customer-order.model';
 // imports from the angular forms module
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+// import our custom order invoice service
+import { OrderInvoiceService } from 'src/app/shared/services/order-invoice.service';
 
 // declare the component
 @Component({
@@ -37,7 +39,9 @@ export class CustomerOrderDialogComponent implements OnInit, OnDestroy {
   ; Response: none
   ; Description: Default constructor
   */
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private orderInvoiceService: OrderInvoiceService) {}
 
   /*
   ; Params: none
@@ -90,5 +94,6 @@ export class CustomerOrderDialogComponent implements OnInit, OnDestroy {
     order.selectedServices = this.selectedServices;
     // add any repair comments
     order.repairs = this.repairGroup.controls.repairs.value;
+    this.orderInvoiceService.submitOrder(order);
   }
 }
