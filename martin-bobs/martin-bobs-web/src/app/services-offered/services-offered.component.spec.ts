@@ -1,9 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ServicesOfferedComponent } from './services-offered.component';
+import { OrderInvoiceService } from '../shared/services/order-invoice.service';
+import { of } from 'rxjs';
+import {MatIconModule} from '@angular/material';
 
-//Create at least 5 unit tests, validating the code you have written.
-//Completed test document.
+// Create at least 5 unit tests, validating the code you have written.
+// Completed test document.
 
 describe('ServicesOfferedComponent', () => {
   let component: ServicesOfferedComponent;
@@ -11,7 +14,12 @@ describe('ServicesOfferedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ServicesOfferedComponent ]
+      imports: [
+        MatIconModule
+      ],
+      declarations: [
+        ServicesOfferedComponent
+      ],
     })
     .compileComponents();
   }));

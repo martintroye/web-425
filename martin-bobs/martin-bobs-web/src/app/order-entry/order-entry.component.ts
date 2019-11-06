@@ -80,7 +80,6 @@ export class OrderEntryComponent implements OnInit {
       this.entryGroup.addControl('partsTotal', new FormControl(''));
 
       this.orderInvoiceService.getCurrentOrder().subscribe((order) => {
-        console.log(order);
         this.currentOrder = order;
       });
 

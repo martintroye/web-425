@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {MatCheckboxModule, MatChipsModule} from '@angular/material';
 import { ProductOfferingsComponent } from './product-offerings.component';
 
 describe('ProductOfferingsComponent', () => {
@@ -8,7 +9,15 @@ describe('ProductOfferingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductOfferingsComponent ]
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatCheckboxModule,
+        MatChipsModule
+      ],
+      declarations: [
+        ProductOfferingsComponent
+      ]
     })
     .compileComponents();
   }));
