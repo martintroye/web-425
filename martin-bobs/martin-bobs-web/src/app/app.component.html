@@ -8,10 +8,14 @@
 ;===========================================
 -->
 
+<!-- main container -->
 <div fxLayout="column" fxFlexFill>
+  <!-- toolbar for the application -->
   <app-toolbar></app-toolbar>
   <div fxFlex>
-      <router-outlet></router-outlet>
+    <!-- outlet for the routed components -->
+    <router-outlet></router-outlet>
   </div>
+  <!-- common footer for the application -->
   <app-footer></app-footer>
 </div>

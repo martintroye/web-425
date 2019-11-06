@@ -7,12 +7,17 @@
 ; Description: WEB425
 ;===========================================
 -->
+<!-- define the form -->
 <form [formGroup]="orderGroup" fxLayout="column wrap">
+  <!-- using an ngFor output the products -->
   <div fxLayout="row" fxLayoutAlign="space-between center" formArrayName="productOfferings" *ngFor="let product of orderGroup.controls.productOfferings.controls; let i = index" style="padding-top:1rem;">
+    <!-- define the checkbox -->
     <mat-checkbox color="primary" id="{{ i }}" formControlName="{{ i }}">
       {{ products[i].description }}
     </mat-checkbox>
+    <!-- define the chip displaying the price -->
     <mat-chip-list>
+      <!-- bind the click event to the toggleService method, bind selected to the products selected property, display the price, use the currency pipe and display value in dollars -->
       <mat-chip (click)="toggleService(i)" color="accent" [selected]="this.products[i].selected !== null && this.products[i].selected">{{ products[i].price | currency: "USD" }}</mat-chip>
     </mat-chip-list>
   </div>

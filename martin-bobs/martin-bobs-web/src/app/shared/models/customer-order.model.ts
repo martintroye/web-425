@@ -7,9 +7,13 @@
 ; Description: WEB425
 ;===========================================
 */
+// import our custom product offering model
 import { ProductOffering } from './product-offering.model';
 
+// declare and export our customer order class
 export class CustomerOrder {
+  // array of selected services
   selectedServices: ProductOffering[];
+  // repairs requested by customer
   repairs: string;
 }
