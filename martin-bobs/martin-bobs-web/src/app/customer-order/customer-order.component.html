@@ -15,9 +15,9 @@
   <div
     fxLayout="column"
     fxFlex
-    class="order__button--centered"
-    (click)="orderNow()">
-    <button mat-raised-button color="primary">How can we help you?</button>
+    class="order__button--centered">
+    <!-- bind the click event to orderNow -->
+    <button mat-raised-button color="primary" (click)="orderNow()">How can we help you?</button>
   </div>
   <div fxLayout="column" fxFlex="1 1 33%">
     <p style="padding:3px;">Bob's Computer Repair Shop has been voted by you to be Omaha's Best 10 years in a row. So if your phone, tablet, laptop, or desktop is giving you fits, or if you need a nasty virus removed call Bob he can help.</p>

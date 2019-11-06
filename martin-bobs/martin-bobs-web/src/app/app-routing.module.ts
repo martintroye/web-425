@@ -21,8 +21,11 @@ import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.compo
 
 // declare routes for application
 const routes: Routes = [
+  // default route
   {path: '', component: HomePageComponent},
+  // route to enter an order
   {path: 'orderEntry', component: OrderEntryComponent},
+  // route to view invoice by id
   {path: 'invoice/:id', component: InvoiceSummaryComponent}
 ];
 

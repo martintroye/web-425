@@ -7,7 +7,7 @@
 ; Description: WEB425
 ;===========================================
 -->
-<div fxLayout="row" fxLayoutAlign="center center">
+<div fxLayout="row" fxFlexfill fxLayoutAlign="center center">
   <div fxLayout="column wrap" fxFlex="1 1 50%">
     <mat-card>
       <mat-card-header>
@@ -15,7 +15,9 @@
           Invoice #23456
         </mat-toolbar>
       </mat-card-header>
-      <mat-card-content>
+      <!-- if there is an invoice load it -->
+      <mat-card-content *ngIf="invoice">
+        <!-- using ngFor loop the selected services and output-->
         <div
           fxLayout="row"
           fxLayoutAlign="space-between center"
@@ -34,7 +36,7 @@
             >
           </mat-chip-list>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="padding-top:1rem;">
           <span fxFlex="1 1 50%"> Labor hours {{ invoice.laborHours }} </span>
           <mat-chip-list>
             <mat-chip [selected]="this.laborGrandTotal > 0" color="accent">{{
@@ -42,7 +44,7 @@
             }}</mat-chip>
           </mat-chip-list>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="padding-top:1rem;">
           <span fxFlex="1 1 50%">
             Parts
           </span>
@@ -58,6 +60,7 @@
           class="order--total"
         >
           <span><b>Total</b></span>
+          <!-- display the order total if more than 0 and format to dollars using currency pipe-->
           <span *ngIf="orderGrandTotal > 0">{{
             orderGrandTotal | currency: "USD"
           }}</span>

@@ -11,11 +11,13 @@
   <div fxLayout="row" fxFlex="1 1 30%" fxLayoutAlign="center center">
     <h2 style="margin:5px;">Our Services</h2>
   </div>
-  <div fxFlex  fxLayout="row" fxLayoutAlign="space-between center">
-      <button mat-button *ngFor="let product of products">
-          <mat-icon class="services__icon" inline=true>{{product.icon}}</mat-icon>
-          {{product.description}}
-      </button>
-
+  <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+    <!-- using an ngFor loop the products and output them as material buttons -->
+    <button mat-button *ngFor="let product of products">
+      <mat-icon class="services__icon" inline="true">{{
+        product.icon
+      }}</mat-icon>
+      {{ product.description }}
+    </button>
   </div>
 </div>

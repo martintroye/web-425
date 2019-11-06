@@ -58,7 +58,7 @@ export class ProductOfferingsComponent implements OnInit {
   ; Description: Set the selected property of the product by index
   */
   toggleService(index: number) {
-    // using the index get the product offering, must cast the abstractcontrol to a formarray
+    // using the index get the product offering, must cast the AbstractControl to a FormArray
     const control = (this.orderGroup.controls.productOfferings as FormArray).controls[index];
     // toggle the value
     control.setValue(!control.value);

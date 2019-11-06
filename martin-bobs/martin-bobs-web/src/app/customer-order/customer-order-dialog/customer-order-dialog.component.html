@@ -7,11 +7,13 @@
 ; Description: WEB425
 ;===========================================
 -->
-<div fxLayout="column" (ngSubmit)="submit()" fxFlexFill style="padding: 10px;">
+<div fxLayout="column" fxFlexFill style="padding: 10px;">
   <h2 mat-dialog-title>Our Services</h2>
   <mat-dialog-content>
+    <!-- bind the total and selected products using functions-->
     <app-product-offerings (total)="setTotal($event)" (selectedProducts)="setSelectedProducts($event)"></app-product-offerings>
-    <form [formGroup]="repairGroup">
+    <!-- define the form -->
+    <form [formGroup]="repairGroup" (ngSubmit)="submit()">
       <div fxLayout="row" fxLayoutAlign="center center">
         <mat-form-field fxFlex fxFlexFill>
           <textarea matInput formControlName="repairs" placeholder="Repairs {{ 50.00 | currency: 'USD' }}/hr + Parts"></textarea>
