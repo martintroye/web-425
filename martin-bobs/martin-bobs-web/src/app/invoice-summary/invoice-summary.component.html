@@ -36,15 +36,15 @@
             >
           </mat-chip-list>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between center" style="padding-top:1rem;">
-          <span fxFlex="1 1 50%"> Labor hours {{ invoice.laborHours }} </span>
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="padding-top:1rem;" *ngIf="this.laborGrandTotal > 0">
+          <span fxFlex="1 1 50%"> Labor hours: {{ invoice.laborHours }} </span>
           <mat-chip-list>
             <mat-chip [selected]="this.laborGrandTotal > 0" color="accent">{{
               this.laborGrandTotal | currency: "USD"
             }}</mat-chip>
           </mat-chip-list>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between center" style="padding-top:1rem;">
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="padding-top:1rem;" *ngIf="invoice.partsTotal > 0">
           <span fxFlex="1 1 50%">
             Parts
           </span>
