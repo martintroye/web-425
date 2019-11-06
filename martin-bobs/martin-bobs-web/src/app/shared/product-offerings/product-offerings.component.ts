@@ -107,12 +107,14 @@ export class ProductOfferingsComponent implements OnInit {
       && this.products) {
 
       this.currentCustomerOrder.selectedServices.forEach((service) => {
-        for (let i = 0; i > this.products.length; i++) {
+        for (let i = 0; i < this.products.length; i++) {
           if (this.products[i].description === service.description) {
             this.toggleService(i);
           }
         }
       });
+
+      this.calculateTotal();
     }
   }
 
@@ -132,24 +134,28 @@ export class ProductOfferingsComponent implements OnInit {
       // define the form group setting the array to the list of products
       this.orderGroup = this.formBuilder.group({ productOfferings: new FormArray(formControls) });
 
+      this.loadCustomerOrder();
+
       // subscribe to changes to the component
       this.valueChangesSubscription = this.orderGroup.valueChanges.subscribe((productOfferings) => {
-        // get the selected services
-        const selectedServices = this.getSelectedServices();
-        // reset the total
-        this.orderGrandTotal = 0.00;
-        // loop the services
-        selectedServices.map((productOffering) => {
-          // add the product offer price to the total
-          this.orderGrandTotal += productOffering.price;
-        });
-
-        // emit the array of selected products
-        this.selectedProducts.emit(selectedServices);
-        // emit the totals
-        this.total.emit(this.orderGrandTotal);
+        this.calculateTotal();
       });
     });
   }
 
+
+  private calculateTotal() {
+    const selectedServices = this.getSelectedServices();
+    // reset the total
+    this.orderGrandTotal = 0.00;
+    // loop the services
+    selectedServices.map((productOffering) => {
+      // add the product offer price to the total
+      this.orderGrandTotal += productOffering.price;
+    });
+    // emit the array of selected products
+    this.selectedProducts.emit(selectedServices);
+    // emit the totals
+    this.total.emit(this.orderGrandTotal);
+  }
 }
