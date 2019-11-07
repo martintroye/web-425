@@ -12,7 +12,7 @@
   <!-- using an ngFor output the products -->
   <div fxLayout="row" fxLayoutAlign="space-between center" formArrayName="productOfferings" *ngFor="let product of orderGroup.controls.productOfferings.controls; let i = index" style="padding-top:1rem;">
     <!-- define the checkbox -->
-    <mat-checkbox color="primary" id="{{ i }}" formControlName="{{ i }}">
+    <mat-checkbox color="primary" id="{{i}}" formControlName="{{i}}" class="{{i}}">
       {{ products[i].description }}
     </mat-checkbox>
     <!-- define the chip displaying the price -->
