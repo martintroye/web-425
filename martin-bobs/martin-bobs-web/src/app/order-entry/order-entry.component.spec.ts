@@ -108,6 +108,7 @@ describe('OrderEntryComponent', () => {
     // the component was created
     expect(component).toBeTruthy();
 
+    // add a selected service
     component.selectedServices.push({description: 'test', price: 10, selected: true, icon: 'text'});
 
     // there should not be an order total yet
